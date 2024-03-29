@@ -1,0 +1,1 @@
+-wto "be0b8999610c453289f1bb1cfa7ef4a2" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "AND_GATE_tb_behav" "xil_defaultlib.AND_GATE_tb" -log "elaborate.log" 
