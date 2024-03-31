@@ -17,6 +17,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache C:/Users/Asus/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-17568-PMdesktop/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -37,6 +40,9 @@ read_vhdl -library xil_defaultlib C:/Users/Asus/my_first_project/my_first_projec
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/Asus/my_first_project/my_first_project.srcs/constrs_1/new/constrainsts.xdc
+set_property used_in_implementation false [get_files C:/Users/Asus/my_first_project/my_first_project.srcs/constrs_1/new/constrainsts.xdc]
+
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
